@@ -5,12 +5,10 @@ Wymagania
 - Dowolny terminal (PowerShell/cmd) albo uruchomienie z Ridera
 
 Uruchomienie
-Wejdź do folderu projektu (tam gdzie jest `.sln`) i uruchom:
+Należy wejść do folderu projektu (tam gdzie jest .sln) i uruchomić kolejno:
 
-"
 bash
 dotnet run
-"
 
 Po uruchomieniu program odpala scenariusz demonstracyjny w Program.cs (dodaje przykładowe dane, wykonuje wypożyczenia/zwroty, pokazuje błędne przypadki i raporty).
 
