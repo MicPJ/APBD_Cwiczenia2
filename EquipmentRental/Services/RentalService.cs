@@ -168,4 +168,32 @@ public class RentalService
         }
         return null;
     }
+    
+    public string getSummaryReport(DateTime today)
+    {
+        int available = 0;
+        int rented = 0;
+        int unavailable = 0;
+
+        foreach (var e in Equipments)
+        {
+            if (e.Status == EquipmentStatus.Dostepny) available++;
+            else if (e.Status == EquipmentStatus.Wypozyczony) rented++;
+            else unavailable++;
+        }
+
+        int active = 0;
+        int overdue = 0;
+        foreach (var r in Rentals)
+        {
+            if (r.isActive()) active++;
+            if (r.isOverDue(today)) overdue++;
+        }
+
+        return "PODSUMOWANIE: Sprzet(Dostepny=" + available
+                                                + ", Wypozyczony=" + rented
+                                                + ", Niedostepny=" + unavailable
+                                                + "), Wypozyczenia(Aktywne=" + active
+                                                + ", Przeterminowane=" + overdue + ")";
+    }
 }
